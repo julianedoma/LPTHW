@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% if scene %}
+<div id=buttons>
+<a href="/logout">Logout</a>
+<a href="/welcome">Change Planet</a>
+</div>
+
+
+<!-- just sth I wanted to try, but music would not play :( On Safari it looks more like it could work though.
+<audio src="/music/SomeonelikeYou.mp3" controls>
+<embed src="/music/SomeonelikeYou.mp3" loop="infitve" autostart="true"></embed>
+</audio> -->
+
+<p>
+  <h1><em> {{ scene.title }} </em></h1>
+</p>
+  <div id=content>{{ scene.description }}</div>
+  {% if scene.urlname == "death" %}
+    <p><a href="/welcome">Play Again?</a>
+  {% else %}
+
+      <p>
+          <form action="/game" method="POST">
+        What do you do? <input type="text" name="userinput"> <input type="Submit">
+    </p>
+      </form>
+      <p>Need help?<span> {{ scene.needhelp }}</span></p>
+    </p>
+
+  {% endif %}
+{% else %}
+  <p><a href="/game">Start at the Beginning</a></p>
+{% endif %}
+{% endblock %}

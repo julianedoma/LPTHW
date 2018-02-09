@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+<!-- https://css-tricks.com/zooming-background-images/ -->
+<!-- super interesting code I tried so hard to implement, but failed... -->
+
+<link rel="stylesheet" href="/static/welcome.css" type="text/css">
+
+{% block content %}
+<h1><em>Welcome{{ username }}!</em></h1>
+<br>
+<p>Please chose a planet to play on :)</p>
+<p>
+
+  <form action="/welcome" method="GET">
+
+    <div class="wrapper">
+  <div id=button1>
+    <a href="/game">Moon</a>
+    </div>
+
+  <div id=button2>
+    <a href="/game">Mars</a>
+</div>
+</div>
+</form>
+
+{% endblock %}

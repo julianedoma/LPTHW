@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block content %}
+{% if scene %}
+<div id=buttons>
+<a href="/logout">Logout</a> 
+<a href="/welcome">Change Planet</a>
+</div>
+
+<p>
+<p>You cannot do that. Please try something else.</p>
+  <h1><em> {{ scene.title }} </em></h1>
+</p>
+  <div id=content>{{ scene.description }}</div>
+  {% if scene.urlname == "death" %}
+    <p><a href="/welcome">Play Again?</a>
+  {% else %}
+
+      <p>
+          <form action="/game" method="POST">
+        What do you do? <input type="text" name="userinput"> <input type="Submit">
+    </p>
+      </form>
+      <p>Need help?<span> {{ scene.needhelp }}</span></p>
+    </p>
+
+  {% endif %}
+{% else %}
+  <p><a href="/welcome">Start at the Beginning</a></p>
+{% endif %}
+{% endblock %}

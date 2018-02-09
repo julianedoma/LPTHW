@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1>Sign up</h1>
+<h2>Your password cannot be changed once it is chosen!<br>So please remember it forever ;)</h2>
+</div>
+<form action="/signup" method="POST">
+
+  <div class="signup-form">
+    <div class="control-group">
+      <input type="text" class="signup-field" value="" placeholder="username" name="username">
+  <label class="signup-field-icon fui-user" for="login-name"></label>
+  </div>
+
+  <div class="control-group">
+    <input type="password" class="signup-field" value="" placeholder="password" name="password">
+    <label class="signup-field-icon fui-lock" for="login-pass"></label>
+  </div>
+
+  <form action="/signup" method="GET">
+    <input type="submit" value="Sign up" class="btn btn-primary btn-large btn-block"xs>
+</div>
+</form>
+
+{% endblock %}
+
+<!-- unfortunately this does not work as intended.. but I cannot figure out why. -->
